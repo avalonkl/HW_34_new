@@ -86,16 +86,18 @@ static String api(String in, boolean r) {
   }
 	
 	public static void main(String[] args) {
-		in = new Scanner(System.in); turn = "X"; winner = null; int p;
+		in = new Scanner(System.in); turn = "X"; winner = null; int p; String inStr;
 
 		System.out.println("|Tic Tac Toe|"); printBoard(); System.out.print("X's turn: ");
 
-		while (winner == null) {
-						
-			try {p = in.nextInt();}
-			catch (InputMismatchException e) {System.out.println("Invalid input"); in = new Scanner(System.in); continue;}
-				
-			if (p < 1 || p > 9) {System.out.println("Invalid input"); continue;}
+		while (winner == null) {			
+			//try {p = in.nextInt();}
+			//catch (InputMismatchException e) {System.out.println("Invalid input"); in = new Scanner(System.in); continue;}
+			//if ((inStr = in.nextLine()).matches("[1-9]+")) 
+			//	p = Integer.valueOf(inStr);
+			//else { System.out.println("Invalid input"); continue;}
+			
+			if (!(inStr = in.nextLine()).matches("[1-9]+") || (p = Integer.valueOf(inStr)) < 1 || p > 9) {System.out.println("Invalid input"); continue;}
 			else if (board[p - 1].equals(String.valueOf(p))) {board[p - 1] = turn;
 			
 			if (turn.equals("X")) {turn = "O";} else {turn = "X";}
